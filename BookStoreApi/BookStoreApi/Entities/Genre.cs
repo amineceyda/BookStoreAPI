@@ -10,6 +10,6 @@ namespace BookStoreApi.Entities
 
         public bool IsActive { get; set; } = true; //Kategorileri açıp kapayabilmek için
 
-        public ICollection<Book> Books { get; set; } // Collection navigation property
+        public ICollection<Book> Books { get; set; } = new List<Book>(); // Collection navigation property
     }
 }

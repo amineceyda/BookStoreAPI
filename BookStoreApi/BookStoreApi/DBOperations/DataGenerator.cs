@@ -19,12 +19,12 @@ namespace BookStoreApi.DBOperations
 
                 var authors = new List<Author>
                 {
-                    new Author { Name = "Eric Ries" },
-                    new Author { Name = "Paulo Coelho" },
-                    new Author { Name = "J. K. Rowling" },
-                    new Author { Name = "Harper Lee" },
-                    new Author { Name = "George Orwell" },
-                    new Author { Name = "F. Scott Fitzgerald" }
+                    new Author { Name = "Eric Ries", DateOfBirth = new DateTime(1969, 09, 22) },
+                    new Author { Name = "Paulo Coelho", DateOfBirth = new DateTime(1947, 08, 24) },
+                    new Author { Name = "J. K. Rowling", DateOfBirth = new DateTime(1965, 07, 31) },
+                    new Author { Name = "Harper Lee", DateOfBirth = new DateTime(1926, 04, 28) },
+                    new Author { Name = "George Orwell", DateOfBirth = new DateTime(1903, 06, 25) },
+                    new Author { Name = "F. Scott Fitzgerald", DateOfBirth = new DateTime(1896, 09, 24) }
                 };
                 context.Authors.AddRange(authors);
                 context.SaveChanges();

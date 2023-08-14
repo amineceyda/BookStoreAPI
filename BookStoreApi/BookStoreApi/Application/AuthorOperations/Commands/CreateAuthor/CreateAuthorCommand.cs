@@ -32,5 +32,6 @@ namespace BookStoreApi.Application.AuthorOperations.Commands.CreateAuthor
     public class CreateAuthorModel
     {
         public string Name { get; set; }
+        public DateTime DateOfBirth { get; set; }
     }
 }

@@ -8,7 +8,9 @@ namespace BookStoreApi.Entities
         public int Id { get; set; }
         public string Name { get; set; }
 
+        public DateTime DateOfBirth { get; set; }
+
         public bool IsActive { get; set; } = true;
-        public ICollection<Book> Books { get; set; } // Collection navigation property
+        public ICollection<Book> Books { get; set; } = new List<Book>(); // Collection navigation property
     }
 }
