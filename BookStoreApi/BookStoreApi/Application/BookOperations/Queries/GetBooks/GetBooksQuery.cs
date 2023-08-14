@@ -18,8 +18,11 @@ namespace BookStoreApi.Application.BookOperations.Querys.GetBooks
 
         public List<BooksViewModel> Handle()
         {
-            var bookList = _dbContext.Books.OrderBy(x => x.Id).ToList();//LinQ
-            //gelen veriyi view modele dönüştürmelisin burda
+            var bookList = _dbContext.Books
+                .Include(book => book.Genre)
+                .Include(book => book.Author)
+                .OrderBy(x => x.Id)
+                .ToList();
 
             List<BooksViewModel> viewModel = _mapper.Map<List<BooksViewModel>>(bookList);
 
@@ -51,6 +54,7 @@ namespace BookStoreApi.Application.BookOperations.Querys.GetBooks
 
         public string Genre { get; set; }
 
+        public string Author { get; set; }  
 
 
     }

@@ -17,22 +17,26 @@ namespace BookStoreApi.DBOperations
                     return;
                 }
 
-                //Author
-                context.Authors.AddRange(
-                    new Author { Name = "Eric Ries"},
-                    new Author { Name = "Paulo Coelho"},
-                    new Author { Name = "J. K. Rowling"},
+                var authors = new List<Author>
+                {
+                    new Author { Name = "Eric Ries" },
+                    new Author { Name = "Paulo Coelho" },
+                    new Author { Name = "J. K. Rowling" },
                     new Author { Name = "Harper Lee" },
-                    new Author { Name = "George Orwell"},
+                    new Author { Name = "George Orwell" },
                     new Author { Name = "F. Scott Fitzgerald" }
-                    );
-               
-                //Genre
-                context.Genres.AddRange(
-                    new Genre { Name = "Personal Growth"},
+                };
+                context.Authors.AddRange(authors);
+                context.SaveChanges();
+
+                var genres = new List<Genre>
+                {
+                    new Genre { Name = "Personal Growth" },
                     new Genre { Name = "Fiction" },
                     new Genre { Name = "Novel" }
-                    );
+                };
+                context.Genres.AddRange(genres);
+                context.SaveChanges();
 
                 context.Books.AddRange(
                     new Book
@@ -40,28 +44,32 @@ namespace BookStoreApi.DBOperations
                         Title = "Lean Startup",
                         PageCount = 200,
                         PublishDate = new DateTime(2011, 06, 12),
-                        GenreId = 1
+                        GenreId = genres[0].Id,
+                        AuthorId = authors[0].Id
                     },
                      new Book
                      {
                          Title = "The Alchemist",
                          PageCount = 208,
                          PublishDate = new DateTime(1988, 04, 25),
-                         GenreId = 2
+                         GenreId = genres[1].Id,
+                         AuthorId = authors[1].Id
                      },
                      new Book
                      {
                          Title = "Harry Potter and the Sorcerer's Stone",
                          PageCount = 320,
                          PublishDate = new DateTime(1997, 06, 26),
-                         GenreId = 2
+                         GenreId = genres[1].Id,
+                         AuthorId = authors[2].Id
                      },
                       new Book
                       {
                           Title = "To Kill a Mockingbird",
                           PageCount = 336,
                           PublishDate = new DateTime(1960, 07, 11),
-                          GenreId = 3
+                          GenreId = genres[2].Id,
+                          AuthorId = authors[3].Id
 
                       },
                       new Book
@@ -69,21 +77,25 @@ namespace BookStoreApi.DBOperations
                           Title = "1984",
                           PageCount = 328,
                           PublishDate = new DateTime(1949, 06, 08),
-                          GenreId = 2
+                          GenreId = genres[1].Id,
+                          AuthorId = authors[4].Id
                       },
                       new Book
                       {
                           Title = "The Great Gatsby",
                           PageCount = 180,
                           PublishDate = new DateTime(1925, 04, 10),
-                          GenreId = 3
+                          GenreId = genres[2].Id,
+                          AuthorId = authors[5].Id
                       },
                       new Book
                       {
                           Title = "Harry Potter and the Deathly Hallows",
                           PageCount = 607,
                           PublishDate = new DateTime(2007, 07, 21),
-                          GenreId = 2
+                          GenreId = genres[1].Id,
+                          AuthorId = authors[2].Id
+
                       }
                       ) ;
 

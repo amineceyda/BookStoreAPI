@@ -42,5 +42,6 @@ namespace BookStoreApi.Application.BookOperations.Commands.UpdateBook
     {
         public string Title { get; set; }
         public int GenreId { get; set; }
+        public int AuthorId { get; set; }
     }
 }

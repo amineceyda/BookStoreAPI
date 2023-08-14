@@ -15,8 +15,12 @@ namespace BookStoreApi.Common
         public MappingProfile() 
         {
             CreateMap<CreateBookModel, Book>();
-            CreateMap<Book, Application.BookOperations.Querys.GetBookDetail.GenreDetailViewModel>().ForMember(dest=> dest.Genre , opt=> opt.MapFrom(src=> src.Genre.Name ));
-            CreateMap<Book, BooksViewModel>().ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name));
+            CreateMap<Book, Application.BookOperations.Querys.GetBookDetail.GenreDetailViewModel>()
+                .ForMember(dest=> dest.Genre , opt=> opt.MapFrom(src=> src.Genre.Name ))
+                .ForMember(dest => dest.Author, opt => opt.MapFrom(src => src.Author.Name)); ;
+            CreateMap<Book, BooksViewModel>()
+                .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
+                .ForMember(dest => dest.Author, opt => opt.MapFrom(src => src.Author.Name)); 
             CreateMap<Genre, GenresViewModel>();
             CreateMap<Genre, Application.GenreOperations.Queries.GetGenreDetail.GenreDetailViewModel>();
             CreateMap<Author, AuthorsViewModel>();

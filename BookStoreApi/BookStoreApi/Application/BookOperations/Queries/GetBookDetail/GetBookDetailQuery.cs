@@ -43,6 +43,7 @@ namespace BookStoreApi.Application.BookOperations.Querys.GetBookDetail
     {
         public string Title { get; set; }
         public string Genre { get; set; }
+        public string Author { get; set; }  
 
         public int PageCount { get; set; }
 
