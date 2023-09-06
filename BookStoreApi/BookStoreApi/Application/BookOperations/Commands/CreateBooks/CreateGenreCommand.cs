@@ -52,6 +52,6 @@ namespace BookStoreApi.Application.BookOperations.Commands.CreateBooks
 
         public int PageCount { get; set; }
 
-        public DateTime PublisDate { get; set; }
+        public DateTime PublishDate { get; set; }
     }
 }
