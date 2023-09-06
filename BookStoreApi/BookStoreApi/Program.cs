@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 
 // Add DbContext as a service with in-memory database
 builder.Services.AddDbContext<BookStoreDbContext>(options => options.UseInMemoryDatabase(databaseName: "BookStoreDB"));
+builder.Services.AddScoped<IBookStoreDbContext>(provider => provider.GetService<BookStoreDbContext>());
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 builder.Services.AddSingleton<ILoggerService, ConsoleLogger>();//Deðiþime açýklýk saðlýyor
 //Solid Prensipleri 
